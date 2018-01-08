@@ -19,12 +19,12 @@
 
 % check out the README file for detailed instructions
 % **** and for more options available ****
-addpath('D:\CODE\MariusBox\runSuite2P') % add the path to your make_db file
+addpath('C:\Users\balaji\Documents\Data\ExampleFromGit') % add the path to your make_db file
 
 % overwrite any of these default options in your make_db file for individual experiments
-make_db_example; % RUN YOUR OWN MAKE_DB SCRIPT TO RUN HERE
+make_db_101317; % RUN YOUR OWN MAKE_DB SCRIPT TO RUN HERE
 
-ops0.toolbox_path = 'C:\CODE\GitHub\Suite2P';
+ops0.toolbox_path = 'C:\Users\balaji\Desktop\Suite2P';
 if exist(ops0.toolbox_path, 'dir')
 	addpath(genpath(ops0.toolbox_path)) % add local path to the toolbox
 else
@@ -38,12 +38,12 @@ ops0.fig                    = 1; % turn off figure generation with 0
 % ops0.diameter               = 12; % most important parameter. Set here, or individually per experiment in make_db file
 
 % ---- root paths for files and temporary storage (ideally an SSD drive. my SSD is C:/)
-ops0.RootStorage            = '//zserver4/Data/2P'; % Suite2P assumes a folder structure, check out README file
-ops0.temp_tiff              = 'C:/DATA/temp.tif'; % copies each remote tiff locally first, into this file
-ops0.RegFileRoot            = 'C:/DATA/';  % location for binary file
-ops0.DeleteBin              = 1; % set to 1 for batch processing on a limited hard drive
-ops0.ResultsSavePath        = 'D:/DATA/F'; % a folder structure is created inside
-ops0.RegFileTiffLocation    = []; %'D:/DATA/'; % leave empty to NOT save registered tiffs (slow)
+ops0.RootStorage            = 'C:\Users\balaji\Documents\Data\ExampleFromGit'; % Suite2P assumes a folder structure, check out README file
+ops0.temp_tiff              = 'C:\Users\balaji\Documents\Data\ExampleFromGit\Analysis\temp.tif'; % copies each remote tiff locally first, into this file
+ops0.RegFileRoot            = 'C:\Users\balaji\Documents\Data\ExampleFromGit\Analysis\';  % location for binary file
+ops0.DeleteBin              = 0; % set to 1 for batch processing on a limited hard drive
+ops0.ResultsSavePath        = 'C:\Users\balaji\Documents\Data\ExampleFromGit\Analysis\F'; % a folder structure is created inside
+ops0.RegFileTiffLocation    = 'C:\Users\balaji\Documents\Data\ExampleFromGit\Analysis\F'; %'D:/DATA/'; % leave empty to NOT save registered tiffs (slow)
 % if you want to save red channel tiffs, also set ops0.REDbinary = 1
 
 % ---- registration options ------------------------------------- %
@@ -81,11 +81,11 @@ ops0.sensorTau              = 2; % decay half-life (or timescale). Approximate, 
 ops0.maxNeurop              = 1; % for the neuropil contamination to be less than this (sometimes good, i.e. for interneurons)
 
 % ----- if you have a RED channel ---------------------- ------------%
-ops0.AlignToRedChannel      = 0; % compute registration offsets using red channel
-ops0.REDbinary              = 0; % make a binary file of registered red frames
+ops0.AlignToRedChannel      = 1; % compute registration offsets using red channel
+ops0.REDbinary              = 1; % make a binary file of registered red frames
 % if db.expred, then compute mean red image for green experiments with red
 % channel available while doing registration
-ops0.redMeanImg             = 0; 
+ops0.redMeanImg             = 1; 
 % for red cell detection (identify_redcells_sourcery.m)
 % redratio = red pixels inside / red pixels outside
 % redcell = redratio > mean(redratio) + redthres*std(redratio)
